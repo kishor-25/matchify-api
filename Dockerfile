@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 FROM python:3.10-slim
 
 WORKDIR /app
@@ -8,10 +9,25 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy everything
+=======
+FROM pytorch/pytorch:2.2.0-cuda11.8-cudnn8-runtime
+
+WORKDIR /app
+
+COPY requirements.txt .
+
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+>>>>>>> 872d4b79e0adf2d4f3640631de5dc2deb0d483f8
 COPY . .
 
 EXPOSE 5000
 
+<<<<<<< HEAD
 # Run Flask app from correct path
 CMD ["python", "app/api/app.py"]
 
+=======
+CMD ["python", "app.py"]
+>>>>>>> 872d4b79e0adf2d4f3640631de5dc2deb0d483f8
